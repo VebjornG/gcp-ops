@@ -3,9 +3,15 @@
 }
  */
 
+ # Create a project for the network
+resource "google_project" "network_project" {
+  name       = "Shared VPC project"
+  project_id = var.network_project_id
+}
+
 # Create the shared VPC network
 resource "google_compute_network" "vpc" {
-  project                 = var.project_id
+  project                 = var.network_project_id
   name                    = var.network_name
   auto_create_subnetworks = false
   routing_mode            = "GLOBAL"
