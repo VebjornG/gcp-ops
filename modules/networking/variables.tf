@@ -1,6 +1,7 @@
-variable "project_id" {
-  description = "allente-training"
+variable "network_project_id" {
+  description = "GCP project ID for networking resources"
   type        = string
+  default     = "shared-vpc"
 }
 
 variable "network_name" {

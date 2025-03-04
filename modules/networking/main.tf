@@ -3,7 +3,7 @@
 }
  */
 
- # Create a project for the network
+# Create a project for the network
 resource "google_project" "network_project" {
   name       = "Shared VPC project"
   project_id = var.network_project_id
