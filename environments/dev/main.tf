@@ -6,7 +6,6 @@ resource "google_project" "app_project" {
 
 module "networking" {
   source         = "../../modules/networking"  # Path to networking module
-  project_id     = var.network_project_id
   network_name   = var.network_name
   #subnet_names   = var.subnet_names  # List of subnet names
 }
