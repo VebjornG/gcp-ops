@@ -19,7 +19,7 @@ resource "google_compute_network" "vpc" {
 
 # Set up the shared VPC host project. This project will host the shared VPC network.
 resource "google_compute_shared_vpc_host_project" "network_host" {
-  project = var.project_id
+  project = var.network_project_id
 }
 
 /* # Create subnets as specified in the subnets variable
