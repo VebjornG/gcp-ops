@@ -1,0 +1,28 @@
+steps:
+  # Terraform Init
+  - id: "Terraform Init"
+    name: hashicorp/terraform:1.6.0
+    entrypoint: sh
+    args:
+      - "-c"
+      - |
+        terraform -chdir=environments/dev init
+
+  # Terraform Plan
+  - id: "Terraform Plan"
+    name: hashicorp/terraform:1.6.0
+    entrypoint: sh
+    args:
+      - "-c"
+      - |
+        terraform -chdir=environments/dev plan -out=tfplan
+
+  # Terraform Apply
+  - id: "Terraform Apply"
+    name: hashicorp/terraform:1.6.0
+    entrypoint: sh
+    args:
+      - "-c"
+      - |
+        terraform -chdir=environments/dev apply -auto-approve tfplan
+    waitFor: ["Terraform Plan"]  # Ensures plan runs first
